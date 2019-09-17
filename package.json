@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Zuzanav/FriendFinder/issues"
   },
-  "homepage": "https://github.com/Zuzanav/FriendFinder#readme"
+  "homepage": "https://github.com/Zuzanav/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
