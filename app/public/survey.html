@@ -1,0 +1,194 @@
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>FriendFinder</title>
+      
+<!-- LINKS =============================================================================================-->
+
+<!--BOOTSTRAP ------------------------------->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- JQUERY---------------------------------->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<!--BOOTSTRAP ------------------------------->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      
+<!-- FONT AWESOME --------------------------->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+      
+<!-- AJAX ------------------------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+<!--=======================================================================================================-->
+      
+</head>
+      
+<body>
+      
+    <div class="container">
+      
+        <h2>Questionnaire</h2>
+        <hr>
+      
+        <h3>About You</h3>
+        <h4>Name (Required)</h4>
+        <input type="text" id="name" class="form-control" required="">
+      
+        <h4>Link to Photo Image (Required)</h4>
+        <input type="text" id="photo" class="form-control" required="">
+      
+        <hr>
+      
+        <!-- QUESTION 1 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">1.) What type of workout do you focus on most?</label>
+            <select class="form-control" id="q1">
+                <option value="1"> Strength </option>
+                <option value="2"> Cardio </option>
+                <option value="3"> Strength and cardio equally </option>
+                <option value="4"> Yoga </option>
+            </select>
+        </div>
+
+        <!-- QUESTION 2 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">2.) How long do you typically workout for (during a single session)? </label>
+            <select class="form-control" id="q1">
+                <option value="1"> 20 minutes or less </option>
+                <option value="2"> 30 minutes </option>
+                <option value="3"> 45 minutes </option>
+                <option value="4"> 1 hour or more </option>
+            </select>
+        </div>
+
+        <!-- QUESTION 3 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">3.) What level of athlete are you?</label>
+            <select class="form-control" id="q1">
+                <option value="1"> Novice </option>
+                <option value="2"> Intermediate </option>
+                <option value="3"> Expert </option>
+                <option value="4"> Professional Athlete </option>
+            </select>
+        </div>
+
+        <!-- QUESTION 4 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">4.) What is your top motivation to working out?</label>
+            <select class="form-control" id="q1">
+                <option value="1"> Weight Loss </option>
+                <option value="2"> Endurance </option>
+                <option value="3"> Strength </option>
+                <option value="4"> Tone </option>
+            </select>
+        </div>
+
+        <!-- QUESTION 5 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">5.) Do you prefer to workout: </label>
+            <select class="form-control" id="q1">
+                <option value="1"> With a class </option>
+                <option value="2"> With lots of friends </option>
+                <option value="3"> By myself </option>
+                <option value="4"> With one other person </option>
+            </select>
+        </div>
+    
+        <!-- QUESTION 6 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">6.) How seriously do you take your workout lifestyle?</label>
+            <select class="form-control" id="q1">
+                <option value="1"> Casually </option>
+                <option value="2"> Somewhat seriously </option>
+                <option value="3"> Seriously</option>
+                <option value="4"> Very Seriously </option>
+            </select>
+        </div>
+
+        <!-- QUESTION 7 ----------------------------------------------------------->
+        <div class="form-group">
+            <label for="q1">7.) What are you looking for in a gym buddy?</label>
+            <select class="form-control" id="q1">
+                <option value="1"> Someone to hangout with </option>
+                <option value="2"> Someone to help push me </option>
+                <option value="3"> Someone I can push who will also push me </option>
+                <option value="4"> Someone to workout side by side with </option>
+            </select>
+        </div>
+
+        <!-- QUESTION 8 ----------------------------------------------------------->
+        <div class="form-group">
+                <label for="q1">8.) question 8 ?</label>
+                <select class="form-control" id="q1">
+                    <option value="1"> blank 1 </option>
+                    <option value="2"> blank 2 </option>
+                    <option value="3"> blank 3 </option>
+                    <option value="4"> blank 4 </option>
+                </select>
+        </div>
+
+
+        <!-- QUESTION 9 ----------------------------------------------------------->
+        <div class="form-group">
+                <label for="q1">9.) question 9 ?</label>
+                <select class="form-control" id="q1">
+                    <option value="1"> blank 1 </option>
+                    <option value="2"> blank 2 </option>
+                    <option value="3"> blank 3 </option>
+                    <option value="4"> blank 4 </option>
+                </select>
+        </div>
+
+        <!-- QUESTION 10 ----------------------------------------------------------->
+        <div class="form-group">
+                <label for="q1">10.) Question 10 ?</label>
+                <select class="form-control" id="q1">
+                    <option value="1"> blank 1 </option>
+                    <option value="2"> blank 2 </option>
+                    <option value="3"> blank 3 </option>
+                    <option value="4"> blank 4 </option>
+                </select>
+        </div>
+
+        <!-- END OF QUESTIONS ------------------------------------------------------------------>
+        <!--======================================================================================-->
+
+        <br>
+        <br>
+      
+        <!-- SUBMIT BUTTON ---------------------------------------------------------------->
+        <button type="submit" class="btn btn-primary btn-lg btn-block btn-success" id="submit">Find Your Gym Buddy!</button>
+      
+    </div><!-- END CONTAINER --------------------------------------------------------------------->
+    
+    <!--========================================================================================================-->
+      
+        <!-- Modal -->
+        <div id="results-modal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+      
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h2 class="modal-title"><strong>Best Match</strong></h2>
+              </div>
+              <div class="modal-body">
+                <h2 id="match-name"></h2>
+                <img id="match-img" src="" alt="">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      
+        
+    </body>
+
+</html>
