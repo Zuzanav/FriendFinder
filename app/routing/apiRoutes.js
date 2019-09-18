@@ -1,4 +1,4 @@
-var friendsData = require("../data/friends");
+var friendsData = require("../data/friends.js");
 
 // ===============================================================================
 
@@ -12,8 +12,18 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.post("/api/friends", function(req, res) {
-      friendsData.push(req.body);
-      res.json(true);
+
+    var match = {
+        name: "", 
+        photo: "",
+        ansDiff: 1000,
+    };
+
+    console.log (req.body);
+
+    var userData = req.body;
+    var userAns = userData.answers;
+
   });
 
 }; // end of module.exports 
