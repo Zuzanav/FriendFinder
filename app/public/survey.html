@@ -56,7 +56,7 @@
 
         <!-- QUESTION 2 ----------------------------------------------------------->
         <div class="form-group">
-            <label for="q1">2.) How long do you typically workout for (during a single session)? </label>
+            <label for="q2">2.) How long do you typically workout for (during a single session)? </label>
             <select class="form-control" id="q1">
                 <option value=""></option>
                 <option value="1"> 20 minutes or less </option>
@@ -68,7 +68,7 @@
 
         <!-- QUESTION 3 ----------------------------------------------------------->
         <div class="form-group">
-            <label for="q1">3.) What level of athlete are you?</label>
+            <label for="q3">3.) What level of athlete are you?</label>
             <select class="form-control" id="q1">
                 <option value=""></option>
                 <option value="1"> Novice </option>
@@ -80,7 +80,7 @@
 
         <!-- QUESTION 4 ----------------------------------------------------------->
         <div class="form-group">
-            <label for="q1">4.) What is your top motivation to working out?</label>
+            <label for="q4">4.) What is your top motivation to working out?</label>
             <select class="form-control" id="q1">
                 <option value=""></option>
                 <option value="1"> Weight Loss </option>
@@ -92,7 +92,7 @@
 
         <!-- QUESTION 5 ----------------------------------------------------------->
         <div class="form-group">
-            <label for="q1">5.) Do you prefer to workout: </label>
+            <label for="q5">5.) Do you prefer to workout: </label>
             <select class="form-control" id="q1">
                 <option value=""></option>
                 <option value="1"> With a class </option>
@@ -104,7 +104,7 @@
     
         <!-- QUESTION 6 ----------------------------------------------------------->
         <div class="form-group">
-            <label for="q1">6.) How seriously do you take your workout lifestyle?</label>
+            <label for="q6">6.) How seriously do you take your workout lifestyle?</label>
             <select class="form-control" id="q1">
                 <option value=""></option>
                 <option value="1"> Casually </option>
@@ -116,7 +116,7 @@
 
         <!-- QUESTION 7 ----------------------------------------------------------->
         <div class="form-group">
-            <label for="q1">7.) What are you looking for in a gym buddy?</label>
+            <label for="q7">7.) What are you looking for in a gym buddy?</label>
             <select class="form-control" id="q1">
                 <option value=""></option>
                 <option value="1"> Someone to hangout with </option>
@@ -128,7 +128,7 @@
 
         <!-- QUESTION 8 ----------------------------------------------------------->
         <div class="form-group">
-                <label for="q1">8.) question 8 ?</label>
+                <label for="q8">8.) question 8 ?</label>
                 <select class="form-control" id="q1">
                     <option value=""></option>
                     <option value="1"> blank 1 </option>
@@ -141,7 +141,7 @@
 
         <!-- QUESTION 9 ----------------------------------------------------------->
         <div class="form-group">
-                <label for="q1">9.) question 9 ?</label>
+                <label for="q9">9.) question 9 ?</label>
                 <select class="form-control" id="q1">
                     <option value=""></option>
                     <option value="1"> blank 1 </option>
@@ -153,7 +153,7 @@
 
         <!-- QUESTION 10 ----------------------------------------------------------->
         <div class="form-group">
-                <label for="q1">10.) Question 10 ?</label>
+                <label for="q10">10.) Question 10 ?</label>
                 <select class="form-control" id="q1">
                     <option value=""></option>
                     <option value="1"> blank 1 </option>
@@ -177,7 +177,7 @@
     <!--========================================================================================================-->
       
         <!-- Modal -->
-        <div id="results-modal" class="modal fade" role="dialog">
+        <div id="results-window" class="modal fade" role="dialog">
           <div class="modal-dialog">
       
             <!-- Modal content-->
@@ -187,8 +187,8 @@
                 <h2 class="modal-title"><strong>Best Match</strong></h2>
               </div>
               <div class="modal-body">
-                <h2 id="match-name"></h2>
-                <img id="match-img" src="" alt="">
+                <h2 id="gym-buddy-name"></h2>
+                <img id="gym-buddy-photo" src="" alt="">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -206,9 +206,72 @@
     // on submission of the survey, run this function...
     $("#submit").on("click", function(event) {
     event.preventDefault();
+
+    function validAns() {
+            
+            var complete = true;
+            $(".form-control").each(function() {
+                if ($(this).val() === ""){
+                    complete = false;
+                }
+            });
+            $(".select").each(function() {
+                if ($(this).val() === ""){
+                    complete = false;
+                }
+            });
+            return complete;
+        }
+
+        if (validAns() == true) {
+             
+             var userData = {
+                 name: $("#name").val().trim(),
+                 photo: $("#photo").val().trim(),
+                 answers: [
+                     $('#q1').val(),
+                     $('#q2').val(),
+                     $('#q3').val(),
+                     $('#q4').val(),
+                     $('#q5').val(),
+                     $('#q6').val(),
+                     $('#q7').val(),
+                     $('#q8').val(),
+                     $('#q9').val(),
+                     $('#q10').val(),
+                 ]
+             };
+
+             var currentURL = window.location.origin;
+
+             $.post(currentURL + "/api/friends", userData, function(data) {
+                
+                $("#gym-buddy-name").text(data.name);
+                $("#gym-buddy-photo").attr("src", data.photo);
+                $("#results-window").modal("toggle");
+            });
+            
+            $('#name').val("");
+            $('#photo').val("");
+            $('#q1').val("");
+            $('#q2').val("");
+            $('#q3').val("");
+            $('#q4').val("");
+            $('#q5').val("");
+            $('#q6').val("");
+            $('#q7').val("");
+            $('#q8').val("");
+            $('#q9').val("");
+            $('#q10').val("");
+           
+        } else {
+            alert("Complete all fields. Thank you.")
+        }
+        
+
+            }
+    
     });
-
-
 
 
 
